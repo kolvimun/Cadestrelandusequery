@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कोल्हवी नगरपालिका - भू-उपयोग वर्गीकरण</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">कोल्हवी कित्तागत विवरण खोजी</h2>
+        <div class="card p-4 mt-3 shadow">
+            <!-- VDC Dropdown -->
+            <label for="vdc" class="form-label">गा.वि.स.:</label>
+            <select id="vdc" class="form-select mb-3" onchange="populateWards()">
+                <option value="">-- गाविस छान्नुस --</option>
+                                  <option value="अमाव">अमाव</option><option value="उमजन ">उमजन </option><option value="ककडी">ककडी</option><option value="करैया">करैया</option><option value="कोल्हवी">कोल्हवी</option><option value="तेतरिया ">तेतरिया </option><option value="प्रसौना">प्रसौना</option><option value="बछनपूर्वा">बछनपूर्वा</option><option value="रमपूर्वा">रमपूर्वा</option><option value="सपही">सपही</option><option value="सिहासनी">सिहासनी</option><option value="सिहोर्वा">सिहोर्वा</option><option value="हरैया ">हरैया </option></select>
+
+            <!-- Ward Dropdown -->
+            <label for="ward" class="form-label">वडा नं/सिट नं:</label>
+            <select id="ward" class="form-select mb-3"><option value="">-- Select Ward --</option><option value="1">1</option><option value="1क">1क</option><option value="1ख">1ख</option><option value="1खगाउँ">1खगाउँ</option><option value="2">2</option><option value="2गाउँ>2गाउँ</option><option value="3">3</option><option value="3गाउँ">3गाउँ</option><option value="3क">3क</option><option value="3कगाउँ">3कगाउँ</option><option value="4">4</option><option value="4क">4क</option><option value="4ख">4ख</option><option value="4खगाउँ">4खगाउँ</option><option value="4गाउँ">4गाउँ</option><option value="5">5</option><option value="5ग">5ग</option><option value="5गाउँ">5गाउँ</option><option value="6">6</option><option value="6गाउँ">6गाउँ</option><option value="7">7</option><option value="7ख">7ख</option><option value="7गाउँ">7गाउँ</option><option value="8">8</option><option value="8ख">8ख</option><option value="8गाउँ">8गाउँ</option><option value="9">9</option><option value="9क">9क</option><option value="9कगाउँ">9कगाउँ</option><option value="9ख">9ख</option><option value="9खगाउँ">9खगाउँ</option><option value="9गाउँ">9गाउँ</option></select>
+            <!-- Parcel ID Input -->
+            <label for="parcel" class="form-label">कित्ता नं:</label>
+            <input type="text" id="parcel" class="form-control mb-3" placeholder="कित्ता नं राख्नुस">
+
+            <!-- Query Button -->
+            <button id="searchBtn" class="btn btn-primary w-100 mt-3" onclick="queryData()">Search</button>
+
+            <!-- Progress Bar -->
+            <div class="progress mt-3" style="display: none;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="mt-5"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+</body></html>
