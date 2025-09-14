@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>कोल्हवी नगरपालिका - भू-उपयोग वर्गीकरण</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      font-family: "Noto Sans Devanagari", sans-serif;
+    }
+    .header-title {
+      font-weight: 700;
+      color: #2c3e50;
+      letter-spacing: 1px;
+    }
+    .card-custom {
+      border-radius: 20px;
+      border: none;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .btn-custom {
+      border-radius: 30px;
+      font-weight: bold;
+    }
+    .progress {
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #results {
+      padding: 20px;
+      border-radius: 12px;
+      background: #ffffffc7;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <h2 class="text-center header-title mb-4">कोल्हवी कित्तागत विवरण खोजी प्रणाली</h2>
+    
+    <div class="card card-custom p-4">
+      <!-- VDC Dropdown -->
+      <label for="vdc" class="form-label fw-semibold">गा.वि.स.:</label>
+      <select id="vdc" class="form-select mb-3" onchange="populateWards()">
+        <option value="">-- गा.वि.स. छान्नुस --</option>
+        <option value="अमाव">अमाव</option>
+        <option value="उमजन">उमजन</option>
+        <option value="ककडी">ककडी</option>
+        <option value="करैया">करैया</option>
+        <option value="कोल्हवी">कोल्हवी</option>
+        <option value="तेतरिया">तेतरिया</option>
+        <option value="प्रसौना">प्रसौना</option>
+        <option value="बछनपूर्वा">बछनपूर्वा</option>
+        <option value="रमपूर्वा">रमपूर्वा</option>
+        <option value="सपही">सपही</option>
+        <option value="सिहासनी">सिहासनी</option>
+        <option value="सिहोर्वा">सिहोर्वा</option>
+        <option value="हरैया">हरैया</option>
+      </select>
+
+      <!-- Ward Dropdown -->
+      <label for="ward" class="form-label fw-semibold">वडा नं/सिट नं:</label>
+      <select id="ward" class="form-select mb-3">
+        <option value="">-- वडा छान्नुस --</option>
+        <option value="1">1</option>
+        <option value="1 क">1 क</option>
+        <option value="1 ख">1 ख</option>
+        <option value="1खगाउँ">1खगाउँ</option>
+        <option value="2">2</option>
+        <option value="2 गाउँ">2 गाउँ</option>
+        <option value="3">3</option>
+        <option value="3 गाउँ">3 गाउँ</option>
+        <option value="3क">3क</option>
+        <option value="3 कगाउँ">3 कगाउँ</option>
+        <option value="4">4</option>
+        <option value="4 क">4 क</option>
+        <option value="4 ख">4 ख</option>
+        <option value="4 खगाउँ">4 खगाउँ</option>
+        <option value="4गाउँ">4गाउँ</option>
+        <option value="5">5</option>
+        <option value="5 ग">5 ग</option>
+        <option value="5 गाउँ">5 गाउँ</option>
+        <option value="6">6</option>
+        <option value="6 गाउँ">6 गाउँ</option>
+        <option value="7">7</option>
+        <option value="7ख">7ख</option>
+        <option value="7 गाउँ">7 गाउँ</option>
+        <option value="8">8</option>
+        <option value="8 ख">8 ख</option>
+        <option value="8 गाउँ">8 गाउँ</option>
+        <option value="9">9</option>
+        <option value="9 क">9 क</option>
+        <option value="9 कगाउँ">9 कगाउँ</option>
+        <option value="9 ख">9 ख</option>
+        <option value="9 खगाउँ">9 खगाउँ</option>
+        <option value="9 गाउँ">9 गाउँ</option>
+      </select>
+
+      <!-- Parcel ID Input -->
+      <label for="parcel" class="form-label fw-semibold">कित्ता नं:</label>
+      <input type="text" id="parcel" class="form-control mb-3" placeholder="कित्ता नं राख्नुस">
+
+      <!-- Query Button -->
+      <button id="searchBtn" class="btn btn-primary btn-custom w-100 mt-2" onclick="queryData()">🔍 खोजी गर्नुहोस्</button>
+
+      <!-- Progress Bar -->
+      <div class="progress mt-3" style="display: none;">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 100%"></div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="mt-5" style="display:none;"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
